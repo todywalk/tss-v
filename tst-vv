@@ -1,0 +1,80 @@
+import Vue from 'vue'
+import Quasar from 'quasar'
+import Plotly from 'plotly.js'
+Vue.use(Quasar) // Install Quasar
+export default Vue.extend({
+  template: `
+    <div>
+      <q-tabs
+        v-model="tab"
+        align="left"
+      >
+        <q-tab name="workloads">
+          <plotly-chart :data="workloadsData" :layout="workloadsLayout" />
+        </q-tab>
+        <q-tab name="contas">
+          <plotly-chart :data="contasData" :layout="contasLayout" />
+        </q-tab>
+        <q-tab name="servicos">
+          <plotly-chart :data="servicosData" :layout="servicosLayout" />
+        </q-tab>
+      </q-tabs>
+    </div>
+  `,
+  data() {
+    return {
+      tab: 'workloads',
+      workloadsData: [
+        {
+          x: ['aws', 'aws', 'aws', 'aws', 'aws', 'BWS', 'Contas', 'ccoe-cbo - RE', 'ccoe-cbo', 'ccoe-cbo', 'ccoe-cbo', 'ceoe cho', 'ccoe-cbo', 'ccoe-cbo'],
+          y: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
+          type: 'bar',
+          orientation: 'h'
+        }
+      ],
+      workloadsLayout: {
+        title: 'Workloads',
+        xaxis: {
+          title: 'R$'
+        },
+        yaxis: {
+          title: 'Serviços'
+        }
+      },
+      contasData: [
+        {
+          x: ['conta1', 'conta2', 'conta3', 'conta4', 'conta5', 'conta6', 'conta7', 'conta8', ' conta9', 'conta10', 'conta11', 'conta12', 'conta13', 'conta14'],
+          y: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
+          type: 'bar',
+          orientation: 'h'
+        }
+      ],
+      contasLayout: {
+        title: 'Contas',
+        xaxis: {
+          title: 'R$'
+        },
+        yaxis: {
+          title: 'Serviços'
+        }
+      },
+      servicosData: [
+        {
+          x: ['servico1', 'servico2', 'servico3', 'servico4', 'servico5', 'servico6', 'servico7', 'servico8', 'servico9', 'servico10', 'servico11', 'servico12', 'servico13', 'servico14'],
+          y: [5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000, 5000],
+          type: 'bar',
+          orientation: 'h'
+        }
+      ],
+      servicosLayout: {
+        title: 'Serviços',
+        xaxis: {
+          title: 'R$'
+        },
+        yaxis: {
+          title: 'Serviços'
+        }
+      }
+    }
+  }
+})
